@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <h2>Team member name</h2>
+    <div id="div1">이름을 선택하세요</div>
+    <button onclick="pickname()">이름 선택</button><br>
+    <div id="div2">역할을 선택하세요</div>
+    <button onclick="pickrole()">역할 선택</button><br>
+    <div id="div3">github 주소</div>
+        <button onclick="github()">github 선택</button><br>
+        
+    <div id='vtnview'><button onclick='myfun()'>github로 이동</button></div>    
+        <script>
+            function pickname(){
+                document.getElementById('div1').innerHTML = `<form action="/action_page.php">
+            <input type="radio" id="ban" name="team" value="반재광">
+            <label>반재광</label><br>
+            <input type="radio" id="lee" name="team" value="이재선">
+            <label>이재선</label><br>
+            <input type="radio" id="chung" name="team" value="정주영">
+            <label>정주영</label>
+            </form>`;
+        }
+        function pickrole(){
+            document.getElementById('div2').innerHTML = `<form action="/action_page.php">
+                <input type="checkbox" id="role1" name="prole1" value="자료조사">
+                <label> 자료조사</label><br>
+                <input type="checkbox" id="role2" name="prole2" value="html 제작">
+                <label> html 제작</label><br>
+                <input type="checkbox" id="role3" name="prole3" value="발표">
+                <label> 발표</label><br><br>
+                </form>`;
+            }
+
+        function github(){
+            document.getElementById('div3').innerHTML = `<form action="/action_page.php">
+                <input type="radio" id="bjg" name="github" value=https://github.com/vankze34" onclick='myfun(this.value)'>
+                <label> 반재광의 github주소로 이동</label><br>
+                <input type="radio" id="ljs" name="github" value="https://github.com/Sun1203" onclick='myfun(this.value)'>
+                <label> 이재선의 github주소로 이동</label><br>
+                <input type="radio" id="cjy" name="github" value="https://github.com/dilatata" onclick='myfun(this.value)'>
+                <label> 정주영의 github주소로 이동</label><br>
+                </form>`;
+            }            
+
+        let giturl;
+        function myfun(v){
+            giturl = v; 
+        }
+        function giturlnove(){
+            location.href = giturl;
+        }
+        </script>
+</body>
+</html>
