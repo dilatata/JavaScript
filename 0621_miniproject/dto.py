@@ -1,12 +1,13 @@
 class DogOwnderDTO:
 
-    def __init__(self, newownerid, newemail, newownername, newaddress, newphoneno, newpasswoed):
+    def __init__(self, newownerid, newemail, newownername, newaddress, newphoneno, newpassword, newaccumpoints):
         self.ownerid = newownerid
         self.email = newemail
         self.ownername = newownername
         self.address = newaddress
         self.phoneno = newphoneno
-        self.password = newpasswoed
+        self.password = newpassword
+        self.accumpoints = newaccumpoints
 
     def getOwnerid(self):
         return self.ownerid
@@ -22,9 +23,12 @@ class DogOwnderDTO:
 
     def getPassword(self):
         return self.password
+    
+    def getAccumpoints(self):
+        return self.accumpoints
 
     def __str__(self):
-        return 'Id : ' + self.ownerid + '- Email : ' + self.email + '- owner name : ' + self.ownername + '- adress : ' + self.address + '- Phoneno : ' + self.phoneno + '- password : ' + self.password
+        return 'Id : ' + self.ownerid + '- Email : ' + self.email + '- owner name : ' + self.ownername + '- adress : ' + self.address + '- Phoneno : ' + self.phoneno + '- password : ' + self.password + '- accumpoints : ' + self.accumpoints
     
 
 
