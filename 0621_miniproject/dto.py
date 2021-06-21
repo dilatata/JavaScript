@@ -26,7 +26,7 @@ class CustDTO:
         return self.pw
     
     def __str__(self):
-        return 'Id : ' + self.custid + '- Email : ' + self.name + '- Phone : ' + self.phone + '- password : ' + self.pw
+        return 'Id : ' + self.custid + '- Email : ' + self.email + '- name: ' + self.name + - '- address' + self.address + '- Phone : ' + self.phoneno + '- password : ' + self.pw
     
     
 
@@ -50,4 +50,50 @@ class RoomDTO:
         return self.newroomdesc
 
     def __str__(self):
-        return '방 번호 : ' + self.roomno + '- 방 이름 : ' + self.roomname + '- 방 종류 : ' + self.roomtype + '- 방 설명 : ' + self.roomdesc
+        return 'room no: ' + self.roomno + '- room name : ' + self.roomname + '- room type : ' + self.roomtype + '- room desc : ' + self.roomdesc
+
+
+
+
+
+        
+class BookDTO:
+    def __init__(self, newbookingid, newcustid, newroomno, newbdate, newchindate, newchoutdate, newcancel, newprice):
+        self.bookingid = newbookingid
+        self.custid = newcustid
+        self.roomno = newroomno
+        self.bdate = newbdate
+        self.chindate = newchindate
+        self.choutdate = newchoutdate
+        self.cancel = newcancel
+        self.price = newprice
+
+    def getBookingid(self):
+        return self.bookingid
+
+    def getCustid(self):
+        return self.custid
+
+    def Roomno(self):
+        return self.roomno
+
+    def getBdate(self):
+        return self.bdate
+
+    def getChindate(self):
+        return self.chindate
+
+    def getChoutdate(self):
+        return self.choutdate
+
+    def getCancle(self):
+        return self.cancel
+    
+    def getPrice(self):
+        return self.price
+
+    def __str__(self):
+        return 'booking id: ' + self.bookingid + '- room custid : ' + self.custid + '- room no : ' + self.roomno + '- bookingdate : ' + self.bdate + '- check in date: ' + self.chindate + '- check out date : ' + self.choutdate + '- cancelation : ' + self.cancel + '- Total Price : ' + self.cancel
+
+
+    
