@@ -9,7 +9,7 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-@app.route('/join', methodes=["POST"])
+@app.route('/join', methods=["POST"])
 def join():
     dao = InfoDAO()
     dto = CustDTO(request.form.get('custid'), request.form.get('email'),  request.form.get('name'),  request.form.get('adress'),  request.form.get('phoneno'),  request.form.get('pw'))
