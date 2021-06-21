@@ -1,6 +1,6 @@
 class CustDTO:
-    def __init__(self, newcustidm, newemail, newname, newaddress, newphoneno, newpw):
-        self.custid = newcustidm
+    def __init__(self, newcustid, newemail, newname, newaddress, newphoneno, newpw):
+        self.custid = newcustid
         self.email = newemail
         self.name = newname
         self.address = newaddress
