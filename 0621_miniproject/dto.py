@@ -41,16 +41,16 @@ class RoomDTO:
         self.roomdesc = newroomdesc
 
     def getRoomno(self):
-        return self.newroomno
+        return self.roomno
 
     def getRoomname(self):
-        return self.newroomname
+        return self.roomname
 
     def getRoomtype(self):
-        return self.newroomtype
+        return self.roomtype
 
     def getRoomdesc(self):
-        return self.newroomdesc
+        return self.roomdesc
 
     def __str__(self):
         return 'room no : ' + self.roomno + '- room name : ' + self.roomname + '- room type : ' + self.roomtype + '- room desc : ' + self.roomdesc
