@@ -13,12 +13,16 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route('/join', methods=["POST"])
+@app.route('/join', methods=["GET","POST"])
 def join():
-    dao = InfoDAO()
-    dto = DogOwnerDTO(request.form.get('custid'), request.form.get('email'),  request.form.get('name'),  request.form.get('adress'),  request.form.get('phoneno'),  request.form.get('pw'))
+    if request.method == 'GET':
+        return render_template('join.html')
+    else:
+        pass
+        dao = InfoDAO()
+        dto = DogOwnerDTO(request.form.get('custid'), request.form.get('email'),  request.form.get('name'),  request.form.get('adress'),  request.form.get('phoneno'),  request.form.get('pw'))
 
-    return dao.join(dto)
+        return dao.join(dto)
 
 @app.route('/login', methods=["POST"])
 def login():
