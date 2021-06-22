@@ -1,10 +1,10 @@
-class DogOwnderDTO:
+class DogOwnerDTO:
 
-    def __init__(self, newownerid, newemail, newownername, newaddress, newphoneno, newpassword, newaccumpoints):
+    def __init__(self, newownerid, newemail, newownername,newpassword, newadress, newphoneno, newaccumpoints):
         self.ownerid = newownerid
         self.email = newemail
         self.ownername = newownername
-        self.address = newaddress
+        self.address = newadress
         self.phoneno = newphoneno
         self.password = newpassword
         self.accumpoints = newaccumpoints
@@ -17,6 +17,9 @@ class DogOwnderDTO:
 
     def getOwnername(self):
         return self.ownername
+    
+    def getAddress(self):
+        return self.address
 
     def getPhoneno(self):
         return self.phoneno
@@ -26,9 +29,10 @@ class DogOwnderDTO:
     
     def getAccumpoints(self):
         return self.accumpoints
+    
 
     def __str__(self):
-        return 'Id : ' + self.ownerid + '- Email : ' + self.email + '- owner name : ' + self.ownername + '- adress : ' + self.address + '- Phoneno : ' + self.phoneno + '- password : ' + self.password + '- accumpoints : ' + self.accumpoints
+        return 'Id : ' + self.ownerid + '- Email : ' + self.email + '- owner name : ' + self.ownername + '- password : ' + self.password + '- adress : ' + self.address + '- Phoneno : ' + self.phoneno + '- accumpoints : ' + self.accumpoints
     
 
 
@@ -112,10 +116,10 @@ class BookDTO:
 
 class DogDTO:
 
-    def __init__(self, newdogname, newownerid, newdogsize, newdogbreed):
+    def __init__(self, newdogname, newownername, newdogsize, newdogbreed):
         
         self.dogname = newdogname
-        self.ownerid = newownerid
+        self.ownername = newownername
         self.dogsize = newdogsize
         self.dogbreed = newdogbreed
 
@@ -123,7 +127,7 @@ class DogDTO:
         return self.dogname
     
     def getOwnername(self):
-        return self.ownerid
+        return self.ownername
 
     def getDogsize(self):
         return self.dogsize
@@ -132,7 +136,7 @@ class DogDTO:
         return self.dogbreed
 
     def __str__(self):
-        return 'dog name : ' + self.dogname + '- owner name : ' + self.ownerid + '- dog size : ' + self.dogsize + '- dog breed : ' + self.dogbreed
+        return 'dog name : ' + self.dogname + '- owner name : ' + self.ownername + '- dog size : ' + self.dogsize + '- dog breed : ' + self.dogbreed
 
 
 class RoomTypeDTO:
