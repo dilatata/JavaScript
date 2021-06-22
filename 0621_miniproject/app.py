@@ -26,7 +26,7 @@ def about():
 def join():
     
     dao = InfoDAO()
-    dto = DogOwnerDTO(request.form.get("ownerid"), request.form.get("oewnername"), request.form.get("password"), request.form.get("email"), request.form.get("address"), request.form.get("phoneno"), request.form.get("accumpoints"))
+    dto = DogOwnerDTO(request.form.get("ownerid"), request.form.get("oewnername"), request.form.get("password"), request.form.get("email"), request.form.get("address"), request.form.get("phoneno"))
     dao.insertjoin(dto)
 
     return render_template('join.html')
@@ -42,8 +42,8 @@ app.config.update(
 
 jwt = JWTManager(app)
 
-admin_id = "tester"
-admin_pw = "11"
+# admin_id = "tester"
+# admin_pw = "11"
 
 
 @app.route('/login', methods=['GET'])
@@ -55,6 +55,13 @@ def login():
 def login_proc():
     user_id = request.form.get("id")
     user_pw = request.form.get("pw")
+
+    dao = InfoDAO()
+    dto = DogOwnerDTO(request.form.get("ownerid"), request.form.get("password"))
+    dao.login(dto)
+
+    admin_id = jsonify(dao.login("ownerid"))
+    admin_pw = jsonify(dao.login("password"))
 
     if (user_id == admin_id and user_pw == admin_pw):
         return jsonify(result=200, access_token=create_access_token(identity=user_id))

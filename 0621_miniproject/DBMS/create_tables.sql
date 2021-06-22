@@ -11,7 +11,6 @@ create table DogOwner(
     Password varchar2(255) NOT NULL,
     Address varchar2(200),
     PhoneNo number(12) NOT NULL,
-    AccumPoints number(5) NOT NULL,
     constraint pk_DogOnwer_OnwerId primary key(OwnerId),
     constraint uq_DogOwner_Email unique(Email)
 );

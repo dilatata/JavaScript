@@ -36,10 +36,6 @@
                 <label for="phoneno">전화번호</label>
                 <input type="text" id="newphoneno" placeholder="전화번호" name="phoneno" />
             </div>
-            <div>
-                <label for="accumpoints">포인트</label>
-                <input type="text" id="newaccumpoints" placeholder="포인트" name="accumpoints" />
-            </div>
             <button type="submit" onclick="insertJoin()">등록</button>
         </form>
     </div>
@@ -58,7 +54,6 @@
                     document.getElementById("email").value = data.email;
                     document.getElementById("address").value = data.adress;
                     document.getElementById("phoneno").value = data.phoneno;
-                    document.getElementById("accumpoints").value = data.accumpoints;
 
                 }
             }
@@ -70,8 +65,7 @@
             + "&password=" + document.getElementById("newpassword").value 
             + "&email=" + document.getElementById("newemail").value 
             + "&address=" + document.getElementById("newaddress").value 
-            + "&phoneno=" + document.getElementById("newphoneno").value
-            + "&accumpoints=" + document.getElementById("newaccumpoints").value;
+            + "&phoneno=" + document.getElementById("newphoneno").valu;
             
             xttp.send(lee);
         }
