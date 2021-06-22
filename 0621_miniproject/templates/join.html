@@ -14,31 +14,68 @@
         <form method="POST" action="/join">
             <div>
                 <label for="ownerid">아이디</label>
-                <input type="text" id="ownerid" placeholder="아이디" name="ownerid" />
+                <input type="text" id="newownerid" placeholder="아이디" name="ownerid" />
             </div>
             <div>
                 <label for="ownername">이름</label>
-                <input type="text" id="ownername" placeholder="이름" name="ownername" />
+                <input type="text" id="newownername" placeholder="이름" name="ownername" />
             </div>
             <div>
                 <label for="password">비밀번호</label>
-                <input type="password" id="password" placeholder="비밀번호" name="password" />
+                <input type="password" id="newpassword" placeholder="비밀번호" name="password" />
             </div>
             <div>
                 <label for="email">이메일</label>
-                <input type="text" id="email" placeholder="이메일" name="email" />
+                <input type="text" id="newemail" placeholder="이메일" name="email" />
             </div>
             <div>
                 <label for="address">주소</label>
-                <input type="text" id="address" placeholder="주소" name="address" />
+                <input type="text" id="newaddress" placeholder="주소" name="address" />
             </div>
             <div>
                 <label for="phoneno">전화번호</label>
-                <input type="text" id="phoneno" placeholder="전화번호" name="phoneno" />
+                <input type="text" id="newphoneno" placeholder="전화번호" name="phoneno" />
             </div>
-            <button type="submit">등록</button>
+            <div>
+                <label for="accumpoints">포인트</label>
+                <input type="text" id="newaccumpoints" placeholder="포인트" name="accumpoints" />
+            </div>
+            <button type="submit" onclick="insertJoin()">등록</button>
         </form>
     </div>
+
+    <script>
+        function insertJoin(){
+            const xttp = new XMLHttpRequest();
+            xttp.onreadystatechange = function(){
+                if(this.responseText == 4 && this.status == 200){
+                    data = this.responseText;
+                    data = JSON.parse(data)
+
+                    document.getElementById("ownerid").value = data.ownerid;
+                    document.getElementById("ownername").value = data.ownername;
+                    document.getElementById("password").value = data.password;
+                    document.getElementById("email").value = data.email;
+                    document.getElementById("address").value = data.adress;
+                    document.getElementById("phoneno").value = data.phoneno;
+                    document.getElementById("accumpoints").value = data.accumpoints;
+
+                }
+            }
+            xttp.open("POST", "join");
+            xttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            lee = "ownerid=" + document.getElementById("newownerid").value 
+            + "&ownername=" + document.getElementById("newownername").value 
+            + "&password=" + document.getElementById("newpassword").value 
+            + "&email=" + document.getElementById("newemail").value 
+            + "&address=" + document.getElementById("newaddress").value 
+            + "&phoneno=" + document.getElementById("newphoneno").value
+            + "&accumpoints=" + document.getElementById("newaccumpoints").value;
+            
+            xttp.send(lee);
+        }
+    </script>
 </body>
 
 </html>
