@@ -44,12 +44,15 @@ jwt = JWTManager(app)
 
 
 
-@app.route('/login', methods=['GET'])
+# @app.route('/login', methods=['GET'])
+# def login():
+#     return render_template("login.html")
+
+
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     return render_template("login.html")
 
-
-@app.route('/login', methods=['POST'])
 def login_proc():
 
     user_id = request.form.get("id")
@@ -64,9 +67,9 @@ def login_proc():
     # print(user_id)
     # print(user_pw)
 
-
+    
     if (user_id == admin_id and user_pw == admin_pw):
-        return jsonify(result=200, access_token=create_access_token(identity=user_id))
+        return jsonify(result=200, access_token=create_access_token(identity=user_id))    
     else:
         return jsonify(result="Invalid Params!")
 
