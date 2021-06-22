@@ -9,10 +9,14 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template('about.html')
+
 @app.route('/join', methods=["POST"])
 def join():
     dao = InfoDAO()
-    dto = CustDTO(request.form.get('custid'), request.form.get('email'),  request.form.get('name'),  request.form.get('adress'),  request.form.get('phoneno'),  request.form.get('pw'))
+    dto = DogOwnerDTO(request.form.get('custid'), request.form.get('email'),  request.form.get('name'),  request.form.get('adress'),  request.form.get('phoneno'),  request.form.get('pw'))
 
     return dao.join(dto)
 
