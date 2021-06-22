@@ -1,4 +1,4 @@
-from logging import DEBUG
+from logging import DEBUG, info
 from flask import Flask, request, render_template, jsonify
 from flask.signals import request_finished
 from flask_jwt_extended import *
@@ -42,8 +42,6 @@ app.config.update(
 
 jwt = JWTManager(app)
 
-# admin_id = "tester"
-# admin_pw = "11"
 
 
 @app.route('/login', methods=['GET'])
@@ -53,15 +51,19 @@ def login():
 
 @app.route('/login', methods=['POST'])
 def login_proc():
+
     user_id = request.form.get("id")
     user_pw = request.form.get("pw")
+    
 
-    dao = InfoDAO()
-    dto = DogOwnerDTO(request.form.get("ownerid"), request.form.get("password"))
-    dao.login(dto)
+    admin_id = InfoDAO().login(request.form.get("ownerid"))
+    admin_pw = InfoDAO().login1(request.form.get("password"))
 
-    admin_id = jsonify(dao.login("ownerid"))
-    admin_pw = jsonify(dao.login("password"))
+    # print(admin_id)
+    # print(admin_pw)
+    # print(user_id)
+    # print(user_pw)
+
 
     if (user_id == admin_id and user_pw == admin_pw):
         return jsonify(result=200, access_token=create_access_token(identity=user_id))

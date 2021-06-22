@@ -58,17 +58,16 @@ class InfoDAO:
         try:
             conn = cx_Oracle.connect(user="gurune", password="jungguru", dsn="xe")
             cur = conn.cursor()
-            print("-----test")
             try:
-                cur.execute("select ownerid, password from dogowner where ownerid=:ownerid and password=:password", \
-                    ownerid=dto.getOwnerid(), password=dto.getPassword()) 
-                print('-----2-----')
+                cur.execute("select ownerid, password from dogowner") 
                 row = cur.fetchone()
                 # print(row)
-                data = '{"ownerid":' + '"'+row[0]+'"}'
-                data2 = '{"password":' + '"'+row[1]+'"}'
-                print(data)
-                print(data2)
+                # print("-----test")
+                # data = '{"ownerid":' + '"'+row[0]+'", "password":' + '"'+row[1]+'"}'
+                # data = '{"ownerid":' + '"'+row[0]+'"}'
+                # data = '{"password":' + '"'+row[1]+'"}'
+                data = row[0]
+                # print(data)
 
 
             except Exception as e:
@@ -83,13 +82,43 @@ class InfoDAO:
 
         return data
     
+# ---------------------------------------------------------------------
+
+
+    def login1(self, dto):
+        data = ''
+        try:
+            conn = cx_Oracle.connect(user="gurune", password="jungguru", dsn="xe")
+            cur = conn.cursor()
+            try:
+                cur.execute("select password from dogowner") 
+                row = cur.fetchone()
+                # print("-----test")
+                # data = '{"ownerid":' + '"'+row[0]+'", "password":' + '"'+row[1]+'"}'
+                # data = '{"password":' + '"'+row[0]+'"}'
+                data = row[0]
+                # print(data)
+
+
+            except Exception as e:
+                print(e) 
+
+        except Exception as e:
+            print(e) 
+
+        finally:
+            cur.close() 
+            conn.close()
+
+        return data
 
 
 if __name__ == "__main__":
 
     dao = InfoDAO()
-    dto = DogOwnerDTO('s12un1234', 'jasun112208@nave2sar.com', 'jaes','a4s22d', 'qw2e123', 10793721280)
+    dto = DogOwnerDTO('tester', 'jasun1208@naver.com', '이재선','k15687', '관악구', 10793721280)
     dao.login(dto)
+    dao.login1(dto)
     # dao.insertjoin(dto)
     # dto = DogOwnerDTO('sun1234')
     # dao.login(dto)
