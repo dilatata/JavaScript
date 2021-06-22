@@ -40,14 +40,14 @@ insert into RoomType values ('b_large', 250, 200, 120, 'premium');
 -- 
 
 -- newroomno, newroomname, newroomtype, newprice, newroomdesc
-insert into RoomType values ( 1 , 'a_medium', '기본중형', 30000, 'standard');
-insert into RoomType values ( 2 , 'a_medium', '기본중형', 30000, 'standard');
-insert into RoomType values ( 3 , 'b_medium', '고급중형', 35000, 'premium');
-insert into RoomType values ( 4 , 'b_medium', '고급중형', 35000, 'premium');
-insert into RoomType values ( 5 , 'a_large', '기본대형', 40000, 'standard');
-insert into RoomType values ( 6 , 'a_large', '기본대형', 40000, 'standard');
-insert into RoomType values ( 7 , 'b_large', '고급대형', 45000, 'premium');
-insert into RoomType values ( 8 , 'b_large', '고급대형', 45000, 'premium');
+insert into Room values ( 1 , 'a_medium', '기본중형', 30000, 'standard');
+insert into Room values ( 2 , 'a_medium', '기본중형', 30000, 'standard');
+insert into Room values ( 3 , 'b_medium', '고급중형', 35000, 'premium');
+insert into Room values ( 4 , 'b_medium', '고급중형', 35000, 'premium');
+insert into Room values ( 5 , 'a_large', '기본대형', 40000, 'standard');
+insert into Room values ( 6 , 'a_large', '기본대형', 40000, 'standard');
+insert into Room values ( 7 , 'b_large', '고급대형', 45000, 'premium');
+insert into Room values ( 8 , 'b_large', '고급대형', 45000, 'premium');
 
 
 -- 
@@ -65,4 +65,4 @@ insert into Booking values(6, 'qwe' , 2, 21/03/21, 21/04/12, 21/04/13, 0, 'coco'
 insert into Booking values(7, 'fgh' , 8, 21/05/13, 21/05/30, 21/06/3, 0, 'bori', 30. 'labrador', 180000);
 insert into Booking values(8, 'bcd' , 5, 21/05/16, 21/05/25, 21/05/26, 1, 'nabak', 16. 'bodder', 80000);
 insert into Booking values(9, 'qwe' , 2, 21/06/01, 21/06/02, 21/06/03, 0, 'coco', 6. 'bichon', 60000);
-insert into Booking values(9, 'qwe' , 2, 21/06/02, 21/06/03, 21/06/06, 1, 'coco', 6. 'bichon', 90000);
+insert into Booking values(10, 'qwe' , 2, 21/06/02, 21/06/03, 21/06/06, 1, 'coco', 6. 'bichon', 90000);
