@@ -1,7 +1,7 @@
 1. system/manager로 로그인
 2. 계정 생성
-SQL> create user [username] identified by [password]
+SQL> create user [username] identified by [password];
 3. 권한 부여
-SQL> grant connect, resource, dba to [username]
+SQL> grant connect, resource, dba to [username];
 4. 다시 접속
 > sqlplus [username]/[password]

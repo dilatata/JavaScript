@@ -8,7 +8,7 @@ create table DogOwner(
     OwnerId varchar2(50), --pk
     Email varchar2(100), --uq
     OwnerName varchar2(50) NOT NULL,
-    Password varchar2(20) NOT NULL,
+    Password varchar2(255) NOT NULL,
     Address varchar2(200),
     PhoneNo number(12) NOT NULL,
     AccumPoints number(5) NOT NULL,
