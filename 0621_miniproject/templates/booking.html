@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+</head>
+<body>
+    <form method="POST" action="/booking">
+        <div>
+            newbookingid, newownerid, newroomno, newbookingdate, newchindate, newchoutdate, newcancel,newdogname, newdogsize, newdogbreed ,newprice
+            <label for="bookingid">예약번호</label>
+            <input type="text" id="newbookingid" placeholder="예약번호" name="bookingid" />
+        </div>
+        <div>
+            <label for="ownerid">고객 아이디</label>
+            <input type="text" id="newownerid" placeholder="고객 id" name="ownerid" />
+        </div>
+        <div>
+            <label for="roomno">예약 호실</label>
+            <input type="text" id="newroomno" placeholder="예약 호실" name="roomno" />
+        </div>
+        <div>
+            <label for="bookingdate">오늘날짜</label>
+            <input type="text" id="newbookingdate" placeholder="오늘 날짜" name="bookingdate" />
+        </div>
+        <div>
+            <label for="chindate">checkin</label>
+            <input type="text" id="newchindate" placeholder="YY/MM/DD" name="chindate" />
+        </div>
+        <div>
+            <label for="choutdate">checkout</label>
+            <input type="text" id="newchoutdate" placeholder="YY/MM/DD" name="choutdate" />
+        </div>
+        <div>
+            <label for="cancel">입력창</label>
+            <input type="text" id="newcancel" placeholder="0을 입력해 주세요" name="cancel" />
+        </div>
+        <div>
+            <label for="dogname">강아지 이름</label>
+            <input type="text" id="newdogname" placeholder="강아지 이름" name="dogname" />
+        </div>
+        <div>
+            <label for="dogsize">강아지 몸무게</label>
+            <input type="text" id="newdogsize" placeholder="강아지 몸무게" name="dogsize" />
+        </div>
+        <div>
+            <label for="dogbreed">견종</label>
+            <input type="text" id="newdogbreed" placeholder="견종" name="dogbreed" />
+        </div>
+        <div>
+            <label for="price">총 금액</label>
+            <input type="text" id="newprice" placeholder="총 금액" name="price" />
+        </div>
+        <button type="submit" onclick="insertbooking()">등록</button>
+    </form>
+    <button tpe="submit" onclick="location.href='/booking'">예약하기</button>
+</div>
+    <script>
+        function insertbooking(){
+            
+        }
+
+    </script>
+
+
+
+</body>
+</html>
