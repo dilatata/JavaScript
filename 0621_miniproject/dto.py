@@ -85,7 +85,7 @@ class BookDTO:
     def getOwnerid(self):
         return self.ownerid
 
-    def Roomno(self):
+    def getRoomno(self):
         return self.roomno
 
     def getBookingdate(self):
