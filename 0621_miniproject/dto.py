@@ -53,11 +53,14 @@ class RoomDTO:
     def getRoomtype(self):
         return self.roomtype
 
+    def getPrice(self):
+        return self.price
+
     def getRoomdesc(self):
         return self.roomdesc
 
     def __str__(self):
-        return 'room no : ' + self.roomno + '- room name : ' + self.roomname + '- room type : ' + self.roomtype + '- room price : ' + self.price + '- room desc : ' + self.roomdesc
+        return 'room no : ' + self.roomno + '- room name : ' + self.roomname + '- room type : ' + self.roomtype + '- price : ' + self.price + '- room desc : ' + self.roomdesc
 
 
 
