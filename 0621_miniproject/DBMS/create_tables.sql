@@ -3,6 +3,7 @@ drop table Dog cascade constraints;
 drop table RoomType cascade constraints;
 drop table Room cascade constraints;
 drop table Booking cascade constraints;
+drop sequence Booking_seq;
 
 create table DogOwner(
     OwnerId varchar2(50), --pk
@@ -43,8 +44,10 @@ create table Room(
     constraint fk_Room_RoomType foreign key(RoomType) references RoomType(RoomType)
 );
 
+create sequence Booking_seq; -- sequence for BookingId
+
 create table Booking(
-    BookingId number, --pk
+    BookingId number(10), --pk
     OwnerId varchar2(50) NOT NULL, --fk
     RoomNo number(4) NOT NULL, --fk
     BookingDate date NOT NULL,
