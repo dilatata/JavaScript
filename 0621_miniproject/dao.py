@@ -35,10 +35,12 @@ class InfoDAO:
             conn = cx_Oracle.connect(user="gurune", password="jungguru", dsn="xe")
             cur = conn.cursor()
             try:
-                cur.execute("select ownerid, password from dogowner") 
+                cur.execute("select ownerid, password from dogowner where ownerid=:ownerid and password=:password", \
+                    ownerid=dto.getOwnerid(), password=dto.getPassword()) 
                 row = cur.fetchone()
+
                 # print(row)
-                # print("-----test")
+                print("-----test")
                 # data = '{"ownerid":' + '"'+row[0]+'", "password":' + '"'+row[1]+'"}'
                 # data = '{"ownerid":' + '"'+row[0]+'"}'
                 # data = '{"password":' + '"'+row[1]+'"}'
@@ -67,12 +69,14 @@ class InfoDAO:
             conn = cx_Oracle.connect(user="gurune", password="jungguru", dsn="xe")
             cur = conn.cursor()
             try:
-                cur.execute("select password from dogowner") 
+                cur.execute("select owenerid, password from dogowner where ownerid=:ownerid and password=:password", \
+                    ownerid=dto.getOwnerid(), password=dto.getPassword()) 
                 row = cur.fetchone()
+                print("--------")
                 # print("-----test")
                 # data = '{"ownerid":' + '"'+row[0]+'", "password":' + '"'+row[1]+'"}'
                 # data = '{"password":' + '"'+row[0]+'"}'
-                data = row[0]
+                data = row[1]
                 # print(data)
 
 
@@ -90,21 +94,21 @@ class InfoDAO:
 
 
 
-def insertbook(self, dto):
-        conn = cx_Oracle.connect(user="gurune", password="jungguru", dsn="xe")
-        cur = conn.cursor()
-        print("-------test1")
+# def bookinsert(self, dto)
+#         conn = cx_Oracle.connect(user="gurune", password="jungguru", dsn="xe")
+#         cur = conn.cursor()
+#         print("-------test1")
 
-        try:    # insert into booking valuew (:bookingid, :oenwerid, roomno, bookingdate, checkindate, checkoutdate, cancellation, dogname, dogsize, dogbreed, totalprice)
-            cur.execute("insert into booking values (:bookingid, :ownerid, :roomno, bookingdate, checkindate, checkoutdate, cancellation, dogname, dogsize, dogbreed)", \
-                bookingid=dto.getBookingid(), ownerid=dto.getOwnerid(), roomno=dto.getRoomno(), bookingdate=dto.getBookingdate(), checkindate=dto.getCheckindate(), checkoutdate=dto.getCheckoutdate(), cancellation=dto.getCancellation(), dogname=dto.getDogname(), dogsize=dto.getDogsize(), dogbreed=dto.getDogbreed(), totlaprice=dto.getTotalprice())
-            print("--------test")
-            conn.commit()
-        except Exception as e:
-            print(e)
-        finally:
-            cur.close()
-            conn.close()
+#         try:    # insert into booking valuew (:bookingid, :oenwerid, roomno, bookingdate, checkindate, checkoutdate, cancellation, dogname, dogsize, dogbreed, totalprice)
+#             cur.execute("insert into booking values (:bookingid, :ownerid, :roomno, bookingdate, checkindate, checkoutdate, cancellation, dogname, dogsize, dogbreed)", \
+#                 bookingid=dto.getBookingid(), ownerid=dto.getOwnerid(), roomno=dto.getRoomno(), bookingdate=dto.getBookingdate(), checkindate=dto.getCheckindate(), checkoutdate=dto.getCheckoutdate(), cancellation=dto.getCancellation(), dogname=dto.getDogname(), dogsize=dto.getDogsize(), dogbreed=dto.getDogbreed(), totlaprice=dto.getTotalprice())
+#             print("--------test")
+#             conn.commit()
+#         except Exception as e:
+#             print(e)
+#         finally:
+#             cur.close()
+#             conn.close()
 
 
 
@@ -113,6 +117,7 @@ def insertbook(self, dto):
 if __name__ == "__main__":
 
     dao = InfoDAO()
+    dto = 
     # dto = DogOwnerDTO('tester', 'jasun1208@naver.com', '이재선','k15687', '관악구', 10793721280)
     # dao.login(dto)
     # dao.login1(dto)

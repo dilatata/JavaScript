@@ -62,10 +62,10 @@ def login_proc():
     admin_id = InfoDAO().login(request.form.get("ownerid"))
     admin_pw = InfoDAO().login1(request.form.get("password"))
 
-    # print(admin_id)
-    # print(admin_pw)
-    # print(user_id)
-    # print(user_pw)
+    print(admin_id)
+    print(admin_pw)
+    print(user_id)
+    print(user_pw)
 
     
     if (user_id == admin_id and user_pw == admin_pw):
