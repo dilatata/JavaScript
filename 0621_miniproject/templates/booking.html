@@ -7,9 +7,10 @@
     <title>Booking</title>
 </head>
 <body>
+    newbookingid, newownerid, newroomno, newbookingdate, newchindate, newchoutdate, newcancel,newdogname, newdogsize, newdogbreed ,newprice
     <form method="POST" action="/booking">
         <div>
-            newbookingid, newownerid, newroomno, newbookingdate, newchindate, newchoutdate, newcancel,newdogname, newdogsize, newdogbreed ,newprice
+            <!--  sequence로 들어가야하는 부분 -->
             <label for="bookingid">예약번호</label>
             <input type="text" id="newbookingid" placeholder="예약번호" name="bookingid" />
         </div>
@@ -18,11 +19,23 @@
             <input type="text" id="newownerid" placeholder="고객 id" name="ownerid" />
         </div>
         <div>
-            <label for="roomno">예약 호실</label>
-            <input type="text" id="newroomno" placeholder="예약 호실" name="roomno" />
+            <!-- <label for="roomno">예약 호실</label>
+            <input type="text" id="newroomno" placeholder="예약 호실" name="roomno" /> -->
+            <label for="roomno">Choose a room:</label>
+            <select id="newroomno" name="roomno">
+                <option value="1">중형1실</option>
+                <option value="2">중형2실</option>
+                <option value="3">중형3실</option>
+                <option value="4">중형4실</option>
+                <option value="5">대형5실</option>
+                <option value="6">대형6실</option>
+                <option value="7">대형7실</option>
+                <option value="8" selected>대형8실</option>
+            </select>
         </div>
         <div>
-            <label for="bookingdate">오늘날짜</label>
+            <!-- sysdate 가능한지 확인하기 -->
+            <label for="bookingdate">오늘날짜</label> 
             <input type="text" id="newbookingdate" placeholder="오늘 날짜" name="bookingdate" />
         </div>
         <div>
@@ -34,6 +47,7 @@
             <input type="text" id="newchoutdate" placeholder="YY/MM/DD" name="choutdate" />
         </div>
         <div>
+            <!-- 자동으로 0 입력되게 만들면 되는지 -->
             <label for="cancel">입력창</label>
             <input type="text" id="newcancel" placeholder="0을 입력해 주세요" name="cancel" />
         </div>
@@ -50,16 +64,51 @@
             <input type="text" id="newdogbreed" placeholder="견종" name="dogbreed" />
         </div>
         <div>
+            <!-- 비어있다가 입력된 날짜 * 해당 방의 가격으로 비동기 출력되도록 -->
             <label for="price">총 금액</label>
             <input type="text" id="newprice" placeholder="총 금액" name="price" />
         </div>
-        <button type="submit" onclick="insertbooking()">등록</button>
+            <button type="submit" onclick="insertbooking()">등록확인</button>
     </form>
     <button tpe="submit" onclick="location.href='/booking'">예약하기</button>
 </div>
     <script>
         function insertbooking(){
-            
+            const xttp = new XMLHttpRequest();
+            xttp.onreadystatechange = function(){
+                if(this.responseText == 4 && this.status == 200){
+                    data = this.responseText;
+                    data = JSON.parse(data)
+
+                    document.getElementById("newbookingid").value = data.bookingid;
+                    document.getElementById("newownerid").value = data.ownerid;
+                    document.getElementById("newroomno").value = data.password;
+                    document.getElementById("newbookingdate").value = data.bookingdata;
+                    document.getElementById("newchindate").value = data.chindate;
+                    document.getElementById("newchoutdate").value = data.choutdate;
+                    document.getElementById("newcancel").value = data.cancel;
+                    document.getElementById("newdogname").value = data.dogname;
+                    document.getElementById("newdogsize").value = data.dogsize;
+                    document.getElementById("newdogbreed").value = data.dogbreed;
+                    document.getElementById("newprice").value = data.price;
+
+                }
+            };
+            xttp.open("POST", "booking");
+            xttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            book = "bookingid=" + document.getElementById("newbookingid").value 
+            +"&ownerid=" + document.getElementById("newownerid").value 
+            +"&roomno=" + document.getElementById("newroomno").value 
+            +"&bookingdate=" + document.getElementById("newbookingdate").value 
+            +"&chindate" + document.getElementById("newchindate").value 
+            +"&choutdate" + document.getElementById("newchoutdate").value 
+            +"&cancel" + document.getElementById("newcancel").value
+            +"&dogname" + document.getElementById("newdogname").value
+            +"&dogsize" + document.getElementById("newdogsize").value
+            +"&dogbreed" + document.getElementById("newdogbreed").value
+            +"&price" + document.getElementById("newprice").value
+            xttp.send(book);
         }
 
     </script>
