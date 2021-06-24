@@ -15,13 +15,13 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/about', methods=['GET'])
+@app.route('/about', methods=['GET', 'POST'])
 def about():
-    return render_template('about.html')
-
-@app.route('/about', methods=['GET'])
-def about2():
-    return InfoDAO().selectroom()
+    if request.method == "GET":
+        return render_template('about.html')
+        
+    else:
+        return InfoDAO().selectroom()
 
 
 
