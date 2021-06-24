@@ -7,16 +7,17 @@
     <title>예약 확인</title>
 </head>
 <body>
-    <h2>ownerid로 예약정보 확인하기!</h2>
+    <h2>예약정보 확인</h2>
 
   
     <button onclick="infolist()">예약정보 보기</button>
+    <button onclick="location.href='/'">메인화면으로가기</button>
     <br>
     <hr><br>
-    ownerid : <input type="text" id="ownerid" placeholder="입력해!!"> <br>
+    ownerid : <input type="text" id="ownerid" placeholder="입력해!!"> 
+    <br><hr><br>
+
     <div id="demo"></div>
-    <br>
-    <hr><br>
 
 
     <script>
@@ -28,37 +29,33 @@
                 if (this.readyState == 4 && this.status == 200) {
                     data = this.responseText;
                     data = JSON.parse(data);
-                    console.log(data)
+                    alert("예약정보확인")
 
                     tab = `
                     <table border="1">
-                        <tr><th>name</th><th>roomno</th><th>bookingdate</th><th>ckindate</th><th>ckoutdate</th><th>dogname</th><th>dogsize</th><th>dogbreed</th><th>price</th></tr>`;
-                    // let bookingid;
-                    let ownerid;
+                        <tr><th>sequence</th><th>roomno</th><th>bookingdate</th><th>ckindate</th><th>ckoutdate</th><th>dogname</th><th>dogsize</th><th>dogbreed</th><th>price</th></tr>`;
+                    let rownum
                     let roomno;
                     let bookingdate;
                     let checkindate;
                     let ckeckoutdate;
-                    // let cancellation;
                     let dogname;
                     let dogsize;
                     let dogbreed;
                     let totalprice;
                     for (no in data) {
-                        // bookingid = data[no].bookingid;
-                        ownerid = data[no].ownerid;
+                        rownum = data[no].rownum;
                         roomno = data[no].roomno;
                         bookingdate = data[no].bookingdate;
                         checkindate = data[no].checkindate;
                         ckeckoutdate = data[no].ckeckoutdate;
-                        // cancellation = data[no].cancellation;
                         dogname = data[no].dogname;
                         dogsize = data[no].dogsize;
                         dogbreed = data[no].dogbreed;
                         totalprice = data[no].totalprice;
 
                         tab = tab + `<tr>
-                            <td>${ownerid}</td>
+                            <td>${rownum}</td>
                             <td>${roomno}</td>
                             <td>${bookingdate}</td>
                             <td>${checkindate}</td>
@@ -82,8 +79,3 @@
 
 </html>
 
-<!-- 
-                            <td>${bookingid}</td>
-                            <td>${cancellation}</td>
-
- -->

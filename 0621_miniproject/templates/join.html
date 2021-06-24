@@ -48,19 +48,13 @@
                 if(this.responseText == 4 && this.status == 200){
                     data = this.responseText;
                     data = JSON.parse(data)
-
-                    document.getElementById("ownerid").value = data.ownerid;
-                    document.getElementById("ownername").value = data.ownername;
-                    document.getElementById("password").value = data.password;
-                    document.getElementById("email").value = data.email;
-                    document.getElementById("address").value = data.adress;
-                    document.getElementById("phoneno").value = data.phoneno;
-
                 }
+                
             }
             xttp.open("POST", "join");
             xttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
+            alert("가입 성공")
+            
             lee = "ownerid=" + document.getElementById("newownerid").value 
             + "&ownername=" + document.getElementById("newownername").value 
             + "&password=" + document.getElementById("newpassword").value 
