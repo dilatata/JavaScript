@@ -15,44 +15,37 @@
     <h1 style="text-align: center;">hello this is gurune</h1>
     <br>
 
-    <button onclick="roominfo()">객실정보 보기</button>
-    <br><hr><br>
+    <button onclick="about()">객실정보 보기</button>
+    <br>
+    <hr><br>
 
     <div id="demo"></div>
-    <br><hr><br>
+    <br>
+    <hr><br>
 
 
     <script>
-                
-        function roominfo() {
-
+        function about() {
             const xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     data = this.responseText;
                     data = JSON.parse(data);
-                    
+                    console.log(data)
                     tab = `
                     <table border="1">
-                        <tr><th>sequence</th><th>roomno</th><th>bookingdate</th><th>ckindate</th><th>ckoutdate</th><th>dogname</th><th>dogsize</th><th>dogbreed</th><th>price</th></tr>`;
-                    let rownum
+                        <tr><th>roomno</th><th>RoomName</th><th>RoomPrice</th><th>RoomDesc</th></tr>`;
                     let roomno;
-                    let roomtype;
                     let RoomName;
                     let RoomPrice;
                     let RoomDesc;
                     for (no in data) {
-                        rownum = data[no].rownum;
                         roomno = data[no].roomno;
-                        roomtype = data[no].roomtype;
                         RoomName = data[no].RoomName;
                         RoomPrice = data[no].RoomPrice;
                         RoomDesc = data[no].RoomDesc;
-
                         tab = tab + `<tr>
-                            <td>${rownum}</td>
                             <td>${roomno}</td>
-                            <td>${roomtype}</td>
                             <td>${RoomName}</td>
                             <td>${RoomPrice}</td>
                             <td>${RoomDesc}</td>
@@ -62,11 +55,11 @@
                     document.getElementById("demo").innerHTML = tab;
                 };
             };
-            xhttp.open("GET", "about");
+            xhttp.open("POST", "about");
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send();
         }
     </script>
-
 
 
     <div class="slideshow-container">

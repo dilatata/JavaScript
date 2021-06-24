@@ -36,7 +36,7 @@ DB연동을 통한 jwt token 생성 </p>
 &nbsp;&nbsp;&nbsp;&nbsp; ◼ 발표준비
 </details>
 
-<h2><details><summar> 📍 oven 구성</summary></h2>
+<h2><summar> 📍 oven 구성</summary></h2>
   [oven](https://ovenapp.io/project/CihXFbKH6C5r19A9mIhFwBXJtqDCCF1B#NQ7MD/)
 
 
