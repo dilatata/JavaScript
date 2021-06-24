@@ -2,6 +2,9 @@ from logging import exception
 import cx_Oracle
 from dto import *
 import bcrypt
+import datetime
+import json
+import collections
 
 # gurune/jungguru
 
@@ -104,6 +107,51 @@ class InfoDAO:
         finally:
             cur.close()
             conn.close()
+
+
+
+
+    def selectinfo(slef, ownerid):
+        data = []  
+        try:
+            conn = cx_Oracle.connect(user="gurune", password="jungguru", dsn="xe")
+            cur = conn.cursor()
+            try:
+                cur.execute("select * from booking where ownerid=:ownerid and cancellation=0", ownerid=ownerid) 
+                rows = cur.fetchall() 
+                # json 포멧으로 가공 : empno/ename/sal key - json 배열
+                # 다양한 방법 : 저장하는 순서를 유지하는 구조의 dict 클래스 
+                v = []   # v 변수에 python구조의 dict 구조로 저장 -> data 변수로 json 포멧으로 변환
+                for row in rows:
+                    # print(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10])
+
+                    d = collections.OrderedDict()
+                    d["bookingid"] = row[0]
+                    d["ownerid"] = row[1]
+                    d["roomno"] = row[2]
+                    d["bookingdate"] = row[3].strftime('%Y-%m-%d')
+                    d["checkindate"] = row[4].strftime('%Y-%m-%d')
+                    d["ckeckoutdate"] = row[5].strftime('%Y-%m-%d')
+                    d["cancellation"] = row[6]
+                    d["dogname"] = row[7]
+                    d["dogsize"] = row[8]
+                    d["dogbreed"] = row[9]
+                    d["totalprice"] = row[10]
+                    v.append(d)   # 이미 존재하는 list의 마지막 요소로 저장(add)
+                    # print(rows)
+
+                data = json.dumps(v, sort_keys=True, default=str, ensure_ascii=False)   # json 포멧으로 자동 변환
+                print(data)
+
+            except Exception as e:
+                print(e) 
+        except Exception as e:
+            print(e) 
+        finally:
+            cur.close() 
+            conn.close()
+
+        return data
 
 
 

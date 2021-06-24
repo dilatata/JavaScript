@@ -3,6 +3,7 @@ from flask import Flask, request, render_template, jsonify
 from flask.signals import request_finished
 from flask_jwt_extended import *
 import datetime
+
 from dao import *
 from dto import *
 
@@ -79,6 +80,13 @@ def booking():
 
     return render_template('booking.html')
 
+
+@app.route('/confirm', methods=["GET", "POST"])
+def infolist():
+    if request.method == "GET":
+        return render_template("confirm.html")
+    else:
+        return InfoDAO().selectinfo(request.form.get('ownerid'))
 
 
 if __name__ == "__main__":
