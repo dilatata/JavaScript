@@ -13,6 +13,7 @@ DB연동을 통한 jwt token 생성 </p>
 &nbsp;&nbsp;&nbsp;&nbsp; ◼ oven을 사용한 웹페이지 구조 골격 설정 </p>
 &nbsp;&nbsp;&nbsp;&nbsp; ◼ 데이터베이스 구조 설정 및 sql 사용한 테이블 생성</p>
 &nbsp;&nbsp;&nbsp;&nbsp; ◼ dao.py dto.py 생성</p>
+</details>
 
 <h3><details><summary>2️⃣일차</summary></h3>
 &nbsp;&nbsp;&nbsp;&nbsp; ◼ 회원가입 페이지 생성, 기능구현(DB로 join 정보 저장)</p>
@@ -36,7 +37,7 @@ DB연동을 통한 jwt token 생성 </p>
 </details>
 
 <h2><details><summar> 📍 oven 구성</summary></h2>
-<a href="https://ovenapp.io/project/CihXFbKH6C5r19A9mIhFwBXJtqDCCF1B#NQ7MD"><h3>oven link</h3>
+  [oven](https://ovenapp.io/project/CihXFbKH6C5r19A9mIhFwBXJtqDCCF1B#NQ7MD)
 
 
 <h2><details><summary>💻Page 구성</summary></h2>
