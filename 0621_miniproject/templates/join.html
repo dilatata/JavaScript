@@ -49,19 +49,18 @@
                     data = this.responseText;
                     data = JSON.parse(data)
                 }
-                
             }
+
             xttp.open("POST", "join");
             xttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             alert("가입 성공")
-            
+
             lee = "ownerid=" + document.getElementById("newownerid").value 
             + "&ownername=" + document.getElementById("newownername").value 
             + "&password=" + document.getElementById("newpassword").value 
             + "&email=" + document.getElementById("newemail").value 
             + "&address=" + document.getElementById("newaddress").value 
             + "&phoneno=" + document.getElementById("newphoneno").valu;
-            
             xttp.send(lee);
         }
         

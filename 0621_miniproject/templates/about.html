@@ -34,29 +34,22 @@
                     console.log(data)
                     tab = `
                     <table border="1">
-                        <tr><th>sequence</th><th>roomno</th><th>RoomName</th><th>RoomPrice</th><th>RoomDesc</th></tr>`;
-                    let rownum;
+                        <tr><th>roomno</th><th>RoomName</th><th>RoomPrice</th><th>RoomDesc</th></tr>`;
                     let roomno;
-                    // let roomtype;
                     let RoomName;
                     let RoomPrice;
                     let RoomDesc;
                     for (no in data) {
-                        rownum = data[no].rownum;
                         roomno = data[no].roomno;
-                        // roomtype = data[no].roomtype;
                         RoomName = data[no].RoomName;
                         RoomPrice = data[no].RoomPrice;
                         RoomDesc = data[no].RoomDesc;
                         tab = tab + `<tr>
-                            <td>${rownum}</td>
                             <td>${roomno}</td>
-                            
                             <td>${RoomName}</td>
                             <td>${RoomPrice}</td>
                             <td>${RoomDesc}</td>
                         </tr>`;
-                        // <td>${roomtype}</td>
                     }
                     tab = tab + `</table>`;
                     document.getElementById("demo").innerHTML = tab;
@@ -67,7 +60,6 @@
             xhttp.send();
         }
     </script>
-
 
 
     <div class="slideshow-container">

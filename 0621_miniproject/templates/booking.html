@@ -9,16 +9,15 @@
 </head>
 
 <body>
-    newbookingid, newownerid, newroomno, newbookingdate, newchindate, newchoutdate, newcancel,newdogname, newdogsize,
-    newdogbreed ,newprice
+
+    <h1>예약하기</h1>
+    <hr>
     <form method="POST" action="/booking">
         <div>
             <label for="ownerid">고객 아이디</label>
             <input type="text" id="newownerid" placeholder="고객 id" name="ownerid" />
         </div>
         <div>
-            <!-- <label for="roomno">예약 호실</label>
-            <input type="text" id="newroomno" placeholder="예약 호실" name="roomno" /> -->
             <label for="roomno">Choose a room:</label>
             <select id="newroomno" name="roomno">
                 <option value="1">중형1실</option>
@@ -32,7 +31,6 @@
             </select>
         </div>
         <div>
-            <!-- sysdate 가능한지 확인하기 -->
             <label for="bookingdate">오늘날짜</label>
             <input type="text" id="newbookingdate" placeholder="오늘 날짜" name="bookingdate" />
         </div>
@@ -45,7 +43,6 @@
             <input type="text" id="newchoutdate" placeholder="YY/MM/DD" name="choutdate" />
         </div>
         <div>
-            <!-- 자동으로 0 입력되게 만들면 되는지 -->
             <label for="cancel">입력창</label>
             <input type="text" id="newcancel" placeholder="0을 입력해 주세요" name="cancel" />
         </div>
@@ -62,7 +59,6 @@
             <input type="text" id="newdogbreed" placeholder="견종" name="dogbreed" />
         </div>
         <div>
-            <!-- 비어있다가 입력된 날짜 * 해당 방의 가격으로 비동기 출력되도록 -->
             <label for="price">총 금액</label>
             <input type="text" id="newprice" placeholder="총 금액" name="price" />
         </div>
@@ -77,22 +73,11 @@
                 if (this.responseText == 4 && this.status == 200) {
                     data = this.responseText;
                     data = JSON.parse(data)
-
- 
-                    document.getElementById("ownerid").value = data.ownerid;
-                    document.getElementById("roomno").value = data.password;
-                    document.getElementById("bookingdate").value = data.bookingdata;
-                    document.getElementById("chindate").value = data.chindate;
-                    document.getElementById("choutdate").value = data.choutdate;
-                    document.getElementById("cancel").value = data.cancel;
-                    document.getElementById("dogname").value = data.dogname;
-                    document.getElementById("dogsize").value = data.dogsize;
-                    document.getElementById("dogbreed").value = data.dogbreed;
-                    document.getElementById("price").value = data.price;
                 }
             };
             xttp.open("POST", "booking");
             xttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            alert("예약 확인 하러가세요!")
 
             book ="ownerid=" + document.getElementById("newownerid").value
                 + "&roomno=" + document.getElementById("newroomno").value
@@ -103,11 +88,10 @@
                 + "&dogname" + document.getElementById("newdogname").value
                 + "&dogsize" + document.getElementById("newdogsize").value
                 + "&dogbreed" + document.getElementById("newdogbreed").value
-                + "&price" + document.getElementById("newprice").value
+                + "&price" + document.getElementById("newprice").value;
 
             xttp.send(book);
         }
-
     </script>
 
 
