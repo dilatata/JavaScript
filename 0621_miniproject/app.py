@@ -1,25 +1,30 @@
 from flask import Flask, request, render_template, jsonify
 from flask_jwt_extended import *
-
 from dao import *
 from dto import *
-
 
 
 app = Flask(__name__)
 
 
+app.config.update(
+    DEBUG=True,
+    JWT_SECRET_KEY="I'M IML"
+)
+
+
+jwt = JWTManager(app)
 
 @app.route('/', methods=["GET"])
 def home():
     return render_template('home.html')
 
 
+
 @app.route('/about', methods=['GET', 'POST'])
 def about():
     if request.method == "GET":
         return render_template('about.html')
-        
     else:
         return InfoDAO().selectroom()
 
@@ -36,17 +41,6 @@ def join():
 
 
 
-
-app.config.update(
-    DEBUG=True,
-    JWT_SECRET_KEY="I'M IML"
-)
-
-
-jwt = JWTManager(app)
-
-
-
 @app.route('/login', methods=['GET'])
 def login():
     return render_template("login.html")
@@ -60,14 +54,10 @@ def login_proc():
     print('----- ', user_id)
     login_result = InfoDAO().login(request.form.get("ownerid"), request.form.get("password"))
 
-
     if login_result:
-        print("--111----+++++ ",  login_result)
-
         return jsonify(result=200, access_token=create_access_token(identity=user_id))
     else:
         return jsonify(result="Invalid Params!")
-
 
 
 
@@ -83,12 +73,15 @@ def booking():
     return render_template('booking.html')
 
 
+
 @app.route('/confirm', methods=["GET", "POST"])
 def infolist():
     if request.method == "GET":
         return render_template("confirm.html")
     else:
         return InfoDAO().selectinfo(request.form.get('ownerid'))
+
+
 
 
 if __name__ == "__main__":

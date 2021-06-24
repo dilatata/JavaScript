@@ -28,12 +28,10 @@ class DogOwnerDTO:
         return self.password
     
 
-    
 
     def __str__(self):
         return 'Id : ' + self.ownerid + '- Email : ' + self.email + '- owner name : ' + self.ownername + '- password : ' + self.password + '- adress : ' + self.address + '- Phoneno : ' + self.phoneno 
     
-
 
 
 class RoomDTO:
