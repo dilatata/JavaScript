@@ -124,12 +124,47 @@ class InfoDAO:
 
         return data
 
+    def selectroom(slef):
+        data = []  
+        try:
+            conn = cx_Oracle.connect(user="gurune", password="jungguru", dsn="xe")
+            cur = conn.cursor()
+            try:
+                cur.execute("select rownum, roomno, roomtype, RoomName, RoomPrice, RoomDesc from room")
+
+                rows = cur.fetchall() 
+                v = []
+                for row in rows:
+
+                    d = collections.OrderedDict()
+                    d["rownum"] = row[0]
+                    d["roomno"] = row[1]
+                    d["roomtype"] = row[2]
+                    d["RoomName"] = row[3]
+                    d["RoomPrice"] = row[4]
+                    d["RoomDesc"] = row[5]
+                    v.append(d)
+
+                data = json.dumps(v, sort_keys=True, default=str, ensure_ascii=False)
+
+            except Exception as e:
+                print(e) 
+        except Exception as e:
+            print(e) 
+        finally:
+            cur.close() 
+            conn.close()
+
+        return data
 
 
-if __name__ == "__main__":
-    dao = InfoDAO()
-#     # dto = DogOwnerDTO('abc', 'abc@naver.com', 'juyoung', '1234', 'youngin', 8212312345)
-#     # dao.login(dto)
+
+# if __name__ == "__main__":
+#     dao = InfoDAO()
+#     dao.login("abc","1234")
+    # dto = DogOwnerDTO('abc', 'abc@naver.com', 'juyoung', '1234', 'youngin', 8212312345)
+    # dao.login(dto)
 #     dto = BookDTO(0, 'cdf' , 1, '21/03/21', '21/04/12', '21/04/13', 0, 'bonggu', 7, 'shiba', 60000)
 #     dao.insertbook2(dto)
-    dao.selectinfo("qwe")
+    # dao.selectinfo("qwe")
+    # dao.selectroom()
