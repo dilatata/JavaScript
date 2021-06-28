@@ -56,5 +56,26 @@ DB연동을 통한 jwt token 생성 </p>
 &nbsp;&nbsp;&nbsp;&nbsp;4) 강아지 데이터 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;5) 예약데이터 <br>
 
+<br><br><br><hr><br><br><br>
+<h2>🖥booking demo<h2>
+  1. 기존 10개의 예약 table <br>
+  <img src='0621_miniproject/img/bookng_1.PNG'> <br><br>
+  2. 예약정보가 있는 객실과 날짜 중 예약이 된 객실의 예약과 checkindate 혹은 checkoutdate 가 겹치도록 설정 후 예약기능을 실행 <br>
+  <img src='0621_miniproject/img/booking_2.PNG'><br><br>
+  3. 입력한 예약정보가 db에 등록되지 않음을 확인<br>
+  <img src='0621_miniproject/img/booking_3.PNG'><br><br>
+  4. 예약정보가 있는 객실과 날짜 중 예약이 된 객실의 예약과 checkindate 혹은 checkoutdate 가 겹치지 않도록 설정 후 예약기능을 실행 <br>
+  <img src='0621_miniproject/img/booking_4,.PNG'><br><br>
+  5. 입력한 예약정보가 db에 등록되었음을 확인 가능<br>
+  <img src='0621_miniproject/img/booking_5.PNG'><br><br>
+  
+  <br><br><br><hr><br><br><br>
+  ➕더 필요한 기능들<br>
+  - 예약, 회원가입 후 결과에 대한 정보(성공, 실패)를 반환하는 기능
+  - jwt 생성 후 토큰의 storage 저장과 사용 기능
+  - 아이디 중복 확인 및 방지 기능
+  
+  
+
 
 
