@@ -59,15 +59,15 @@ DB연동을 통한 jwt token 생성 </p>
 <br><br><br><hr><br><br><br>
 <h2>🖥booking demo<h2>
   1. 기존 10개의 예약 table <br>
-  <img src='0621_miniproject/img/bookng_1.PNG'> <br><br>
+  <img src='https://github.com/dilatata/JavaScript/blob/main/0621_miniproject/img/bookng_1.PNG'> <br><br>
   2. 예약정보가 있는 객실과 날짜 중 예약이 된 객실의 예약과 checkindate 혹은 checkoutdate 가 겹치도록 설정 후 예약기능을 실행 <br>
-  <img src='0621_miniproject/img/booking_2.PNG'><br><br>
+  <img src='https://github.com/dilatata/JavaScript/blob/main/0621_miniproject/img/booking_2.PNG'><br><br>
   3. 입력한 예약정보가 db에 등록되지 않음을 확인<br>
-  <img src='0621_miniproject/img/booking_3.PNG'><br><br>
+  <img src='https://github.com/dilatata/JavaScript/blob/main/0621_miniproject/img/booking_3.PNG'><br><br>
   4. 예약정보가 있는 객실과 날짜 중 예약이 된 객실의 예약과 checkindate 혹은 checkoutdate 가 겹치지 않도록 설정 후 예약기능을 실행 <br>
-  <img src='0621_miniproject/img/booking_4,.PNG'><br><br>
+  <img src='https://github.com/dilatata/JavaScript/blob/main/0621_miniproject/img/booking_4%2C.PNG'><br><br>
   5. 입력한 예약정보가 db에 등록되었음을 확인 가능<br>
-  <img src='0621_miniproject/img/booking_5.PNG'><br><br>
+  <img src='https://github.com/dilatata/JavaScript/blob/main/0621_miniproject/img/booking_5.PNG'><br><br>
   
   <br><br><br><hr><br><br><br>
   ➕더 필요한 기능들<br>
