@@ -1,8 +1,8 @@
 <h1>🐶애견호텔 사이트🐶</h1>
 
 <h2> 💪TEAM</h2>
-&nbsp;backend : 반재광 <br>
-&nbsp;frontend : 이재선, 정주영A <br>
+&nbsp;DB테이블 구축 및 설계 : 반재광 <br>
+&nbsp;frontend & backend : 이재선, 정주영A <br>
 
 <h2> 📍구현기능</h2>
 Python flask 동기/비동기 이용 </p>
